@@ -1,0 +1,76 @@
+@import '../common/colors.scss';
+@import '../common/fonts.scss';
+@import '../common/geometry.scss';
+
+#header-wrapper {
+  box-sizing: border-box;
+
+  margin: 0 auto;
+  padding: $medium-skip 0;
+
+  max-width: $content-max-width;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#header-title {
+  flex: 0 0 content;
+
+  padding: $tiny-skip $medium-skip;
+
+  @include font-size($font-size-huge);
+  font-family: $font-family-barcode;
+  font-weight: 400;
+
+  border-radius: $border-radius-regular;
+
+  &:hover {
+    background-color: $color-hover;
+    transition: background-color $transition-duration-regular ease-out;
+  }
+}
+
+#header-menu {
+  flex: 0 0 content;
+
+  padding-right: $medium-skip;
+
+  display: flex;
+  align-items: center;
+}
+
+.header-menu-item {
+  flex: 1;
+
+  display: block;
+
+  margin-left: $small-skip;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  svg {
+    display: block;
+
+    padding: $tiny-skip;
+
+    width: 32px;
+
+    fill: $color-background-bright;
+
+    border-radius: $border-radius-regular;
+
+    &:hover {
+      fill: $color-foreground;
+
+      transition-property: fill, background-color;
+      transition-duration: $transition-duration-regular;
+      transition-timing-function: ease-out;
+
+      background-color: $color-hover;
+    }
+  }
+}

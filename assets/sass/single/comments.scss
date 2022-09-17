@@ -1,0 +1,21 @@
+@import '../common/colors.scss';
+@import '../common/fonts.scss';
+@import '../common/geometry.scss';
+
+#comments {
+  @include top-box-size;
+
+  margin: $large-skip auto;
+  padding: 0 $medium-skip;
+
+  .utterances {
+    margin: 0;
+    padding: 0;
+
+    max-width: 100%;
+
+    &-frame {
+      max-width: 100%;
+    }
+  }
+}

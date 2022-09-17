@@ -1,0 +1,29 @@
+#pagination {
+  box-sizing: border-box;
+
+  margin: 0 auto;
+  padding: $medium-skip 0;
+
+  max-width: $content-max-width;
+}
+
+.pagination-article {
+  &-title {
+    margin-bottom: $small-skip;
+    padding: $small-skip $medium-skip;
+
+    border-radius: $border-radius-regular;
+
+    color: $color-purple;
+
+    &-label {
+      color: $color-foreground;
+    }
+
+    &:hover {
+      background-color: $color-hover;
+
+      transition: background-color $transition-duration-regular ease-out;
+    }
+  }
+}

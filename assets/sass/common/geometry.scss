@@ -1,0 +1,41 @@
+@mixin top-box-size {
+  box-sizing: border-box;
+  max-width: $content-max-width;
+}
+
+@mixin callout-border($color) {
+  border-width: $callout-border-thin;
+  border-top-width: $callout-border-thick;
+
+  border-style: solid;
+  border-color: $color;
+}
+
+@mixin callout-style {
+  border-radius: $callout-border-radius;
+
+  margin: $medium-skip 0;
+  padding: $callout-padding-vertical $callout-padding-horizontal;
+}
+
+$content-max-width: 1080px;
+
+$border-radius-regular: 10px;
+
+$transition-duration-short: 0.1s;
+$transition-duration-regular: 0.2s;
+$transition-duration-long: 0.4s;
+
+$huge-skip: 72px;
+$large-skip: 48px;
+$medium-skip: 24px;
+$small-skip: 12px;
+$tiny-skip: 8px;
+
+$callout-border-thick: 9px;
+$callout-border-thin: 1px;
+$callout-border-radius: 8px;
+$callout-padding-vertical: 8px;
+$callout-padding-horizontal: 12px;
+
+$list-indent: 24px;

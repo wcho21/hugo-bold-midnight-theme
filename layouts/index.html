@@ -1,0 +1,69 @@
+{{ define "head" }}
+  {{ partial "head.html" . }}
+
+  {{ $style := resources.Get "/sass/index.scss" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}">
+{{ end }}
+
+{{ define "main" }}
+  <div id="main-index">
+    <ul id="main-index-articles">
+      {{ range (.Paginate .Site.RegularPages).Pages }}
+        <a href="{{ .Permalink }}">
+          <li class="main-index-article">
+            <p class="main-index-article-date">{{ .PublishDate | time.Format "2006-01-02" }}</p>
+
+            <h1 class="main-index-article-heading">{{ .Title }}</h1>
+            <p class="main-index-article-summary">{{ .Summary }}</p>
+          </li>
+        </a>
+      {{ end }}
+    </ul>
+
+    <ul id="main-index-pagination">
+      {{ $curIdx := int (sub .Paginator.PageNumber 1) }}
+      {{ $firstIdx := int (sub .Paginator.First.PageNumber 1) }}
+      {{ $lastIdx := int (sub .Paginator.Last.PageNumber 1)}}
+
+      {{ $paginationRange := .Site.Params.paginationRange }}
+      {{ $begIdx := int (math.Max (sub $curIdx $paginationRange) $firstIdx) }}
+      {{ $endIdx := int (math.Min (add $curIdx $paginationRange) $lastIdx) }}
+
+      {{ $firstVisible := eq $begIdx $firstIdx }}
+      {{ if not $firstVisible }}
+        <li class="main-index-pagination-item">
+          <div class="main-index-pagination-item-ellipsis">…</div>
+        </li>
+      {{ end }}
+
+      {{ $pagers := .Paginator.Pagers }}
+      {{ range $i := (seq $begIdx $endIdx) }}
+        {{ $page := (index $pagers $i) }}
+
+        {{ $selected := (eq $i $curIdx) }}
+        {{ if $selected }}
+          <li class="main-index-pagination-item">
+            <div class="main-index-pagination-item-page-number selected">
+              {{ $page.PageNumber }}
+            </div>
+          </li>
+        {{ else }}
+          <li class="main-index-pagination-item">
+            <a href="{{ $page.URL }}">
+              <div class="main-index-pagination-item-page-number">
+                {{ $page.PageNumber }}
+              </div>
+            </a>
+          </li>
+        {{ end }}
+      {{ end }}
+
+      {{ $lastVisible := eq $endIdx $lastIdx }}
+      {{ if not $lastVisible }}
+        <li class="main-index-pagination-item">
+          <div class="main-index-pagination-item-ellipsis">…</div>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

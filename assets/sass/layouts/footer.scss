@@ -1,0 +1,20 @@
+@import '../common/colors.scss';
+@import '../common/fonts.scss';
+@import '../common/geometry.scss';
+
+#footer-wrapper {
+  box-sizing: border-box;
+
+  margin: 0 auto;
+  padding: $medium-skip;
+
+  max-width: $content-max-width;
+
+  color: $color-background-bright;
+
+  font-size: $font-size-tiny;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

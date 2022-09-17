@@ -1,0 +1,145 @@
+@import '../common/colors.scss';
+@import '../common/fonts.scss';
+@import '../common/geometry.scss';
+
+#article {
+  @include top-box-size;
+
+  margin: 0 auto $large-skip auto;
+  padding: $medium-skip;
+
+  &-heading {
+    margin-bottom: $tiny-skip;
+
+    @include font-size($font-size-huge);
+    font-weight: 700;
+
+    color: $color-purple;
+  }
+
+  &-date {
+    @include font-size($font-size-small);
+    font-weight: 700;
+
+    color: $color-background-bright;
+  }
+}
+
+#article-content {
+  margin-top: $medium-skip;
+
+  @include font-size($font-size-medium);
+  font-weight: 300;
+
+  a {
+    color: $color-cyan;
+
+    &:hover {
+      color: $color-cyan-bright;
+
+      transition: color $transition-duration-regular ease-out;
+    }
+  }
+
+  h2 {
+    margin: $huge-skip 0 $medium-skip 0;
+
+    @include font-size($font-size-large);
+    font-weight: 700;
+
+    color: $color-purple;
+  }
+
+  h3 {
+    margin: $medium-skip 0 $small-skip 0;
+
+    @include font-size($font-size-medium);
+    font-weight: 500;
+  }
+
+  p {
+    margin: $tiny-skip 0;
+  }
+
+  p, h1, h2, h3 {
+    code {
+      padding: ($tiny-skip * 0.2) ($tiny-skip);
+
+      border-radius: $border-radius-regular;
+      background-color: $color-background-alt;
+    }
+  }
+
+  code {
+    @include font-size($font-size-small);
+
+    font-family: $font-family-mono;
+    font-weight: 400;
+  }
+
+  pre {
+    @include callout-style;
+
+    code {
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+  }
+
+  ul, ol {
+    margin-left: 0;
+  }
+
+  ul ol, ol ul, ol ol, ul ul {
+    margin-left: $list-indent;
+  }
+
+  ul > li::before, ol > li::before {
+    float: left;
+    width: $list-indent;
+
+    @include font-size($font-size-medium);
+  }
+
+  ul > li::before {
+    content: "\2022";
+  }
+
+  ol {
+    counter-reset: item;
+  }
+
+  ol > li::before {
+    counter-increment: item;
+    content: counter(item) ".";
+  }
+
+  li {
+    margin: $tiny-skip 0;
+
+    @include font-size($font-size-medium);
+    font-weight: 300;
+    
+    p {
+      margin-left: $list-indent;
+    }
+  }
+
+  strong {
+    font-weight: 400;
+  }
+
+  .callout-note {
+    @include callout-border($color-green);
+    @include callout-style;
+
+    @include font-size($font-size-small);
+
+    h1 {
+      color: $color-green;
+
+      @include font-size($font-size-small);
+      font-weight: 500;
+    }
+  }
+}

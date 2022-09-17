@@ -1,0 +1,10 @@
+<aside class="callout-note">
+  <h1 class="callout-note-heading">{{ index .Params 0 | markdownify }}</h1>
+
+  {{ $content := .Inner | markdownify }}
+  {{ if not (strings.Contains $content "<p>") }}
+    <p>{{ $content }}</p>
+  {{ else }}
+    {{ $content }}
+  {{ end }}
+</aside>

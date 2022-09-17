@@ -1,0 +1,87 @@
+@import 'common/colors.scss';
+@import 'common/fonts.scss';
+@import 'common/geometry.scss';
+
+#main-index {
+  box-sizing: border-box;
+  margin: 0 auto;
+
+  max-width: $content-max-width;
+}
+
+ul#main-index-articles {
+  margin-bottom: $large-skip;
+}
+
+.main-index-article {
+  margin: $small-skip 0;
+  padding: $small-skip $medium-skip;
+
+  font-family: $font-family-main;
+
+  border-radius: $border-radius-regular;
+
+  &:hover {
+    background-color: $color-hover;
+    transition: background-color $transition-duration-regular ease-out;
+  }
+
+  &-date {
+    @include font-size($font-size-small);
+    font-weight: 500;
+
+    color: $color-background-bright;
+  }
+
+  &-heading {
+    @include font-size($font-size-huge);
+    font-weight: 700;
+
+    margin: $tiny-skip 0;
+  }
+
+  &-summary {
+    color: $color-purple;
+
+    @include font-size($font-size-medium);
+    font-weight: 400;
+  }
+}
+
+#main-index-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-index-pagination-item {
+  display: block;
+
+  margin: 0 $tiny-skip;
+
+  @include font-size($font-size-small);
+  font-weight: 500;
+
+  cursor: default;
+
+  &-ellipsis, &-page-number {
+    padding: $small-skip $medium-skip;
+
+    border-radius: 10px;
+  }
+
+  &-ellipsis {
+    color: $color-background-bright;
+  }
+
+  &-page-number {
+    &:hover {
+      background-color: $color-hover;
+      transition: background-color $transition-duration-regular ease-out;
+    }
+
+    &.selected {
+      color: $color-background-bright;
+    }
+  }
+}
