@@ -51,10 +51,14 @@
   }
 
   h3 {
-    margin: $medium-skip 0 $small-skip 0;
+    margin: $large-skip 0 $small-skip 0;
 
     @include font-size($font-size-medium);
     font-weight: 500;
+  }
+
+  h2 + h3 {
+    margin-top: $small-skip;
   }
 
   p {
