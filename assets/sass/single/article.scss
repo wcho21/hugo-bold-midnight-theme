@@ -70,15 +70,19 @@
     }
   }
 
-  code {
+  p code {
     @include font-size($font-size-small);
-
-    font-family: $font-family-mono;
     font-weight: 400;
+  }
+
+  code {
+    font-family: $font-family-mono;
   }
 
   pre {
     @include callout-style;
+    @include font-size($font-size-small);
+    font-weight: 400;
 
     code {
       white-space: pre-wrap;
