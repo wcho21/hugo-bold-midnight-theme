@@ -65,7 +65,7 @@
     margin: $tiny-skip 0;
   }
 
-  p, h1, h2, h3 {
+  p, h1, h2, h3, li {
     code {
       padding: ($tiny-skip * 0.2) ($tiny-skip);
 
@@ -74,9 +74,11 @@
     }
   }
 
-  p code {
-    @include font-size($font-size-small);
-    font-weight: 400;
+  p, li {
+    code {
+      @include font-size($font-size-small);
+      font-weight: 400;
+    }
   }
 
   code {
