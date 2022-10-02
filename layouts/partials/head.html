@@ -13,4 +13,8 @@
 
   {{ $commonStyle := resources.Get "/sass/layout.scss" | toCSS | minify | fingerprint }}
   <link rel="stylesheet" type="text/css" href="{{ $commonStyle.RelPermalink }}">
+
+  {{ if .Site.Params.googleAnalytics }}
+    {{ partial "google-analytics.html" . }}
+  {{ end }}
 </head>
